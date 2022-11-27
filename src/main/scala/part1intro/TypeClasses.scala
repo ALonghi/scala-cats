@@ -6,7 +6,7 @@ object TypeClasses {
 
   // part 1 - type class definition
   trait JSONSerializer[T] {
-      def toJson(value: T): String
+    def toJson(value: T): String
   }
 
   // part 2 - create implicit type class INSTANCES

@@ -18,7 +18,9 @@ object Essentials {
 
   // OOP
   class Animal
+
   class Cat extends Animal
+
   trait Carnivore {
     def eat(animal: Animal): Unit
   }
@@ -46,11 +48,11 @@ object Essentials {
   val incremented = incrementer(45) // 46
 
   // map, flatMap, filter
-  val processedList = List(1,2,3).map(incrementer) // List(2,3,4)
-  val aLongerList = List(1,2,3).flatMap(x => List(x, x + 1)) // List(1,2, 2,3, 3,4)
+  val processedList = List(1, 2, 3).map(incrementer) // List(2,3,4)
+  val aLongerList = List(1, 2, 3).flatMap(x => List(x, x + 1)) // List(1,2, 2,3, 3,4)
 
   // for-comprehensions
-  val checkerboard = List(1,2,3).flatMap(n => List('a', 'b', 'c').map(c => (n, c)))
+  val checkerboard = List(1, 2, 3).flatMap(n => List('a', 'b', 'c').map(c => (n, c)))
   val anotherCheckerboard = for {
     n <- List(1, 2, 3)
     c <- List('a', 'b', 'c')
@@ -101,6 +103,7 @@ object Essentials {
 
   // some more advanced stuff
   trait HigherKindedType[F[_]]
+
   trait SequenceChecker[F[_]] {
     def isSequential: Boolean
   }

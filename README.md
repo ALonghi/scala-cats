@@ -1,4 +1,6 @@
-# Notes and Examples on Cats Core
+# Scala with Cats Core
+
+This project contains notes and examples of Scala and Cats core concepts.   
 
 
 ## Project setup
