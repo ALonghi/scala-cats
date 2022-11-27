@@ -35,4 +35,6 @@ object CatsIntro {
 
   val compareTwoToyCars = ToyCar("Ferrari", 29.99) === ToyCar("Lamborghini", 29.99) // true
 
+//  val anotherComparison = ToyCar("a", 0).model === ToyCar("b", 1).price // this doesnt compile
+
 }
