@@ -1,18 +1,14 @@
 package part1intro
 
-// Type class variance
-// covariant enables the preference of more specific TC instance
-// contravariant ability to use the superclass TC instance
+/**
+ * Type class variance
+ * Variance tells us if a type constructor (equivalent to a generic type in Java)
+ * is a subtype of another type constructor.
+ *
+ * - covariant enables the preference of more specific TC instance
+ * - contravariant ability to use the superclass TC instance
+ */
 object TCVariance {
-
-  import cats.Eq
-  import cats.instances.int._ // Eq[Int] TC instance
-  import cats.instances.option._
-  import cats.syntax.eq._
-
-  val aComparison = Option(2) === Option(3)
-  //   val anInvalidComparison = Some(2) === None // Eq[Some[Int]] not found
-  val aMadeValidComparison = Option(2) === Option.empty[Int] // compiles  - Eq[Option[Int]] chosen
 
   // variance - is a generic type annotation that will allow you to propagate subtyping to the generic type
   class Animal
@@ -68,11 +64,9 @@ object TCVariance {
   def organizeShow[T](implicit event: AnimalShow[T]): String = event.show
   // rule 2: co
 
-
   def main(args: Array[String]): Unit = {
     println(organizeShow[Cat]) // ok - the compiler will inject CatsShow as implicit
     // println(organizeShow[Animal]) // will not compile - ambiguous values
   }
-
 
 }

@@ -62,7 +62,6 @@ object Implicits {
   // implicit methods are used to PROVE THE EXISTENCE of a type
   // can be used for implicit conversions (DISCOURAGED)
 
-
   def main(args: Array[String]): Unit = {
 
   }

@@ -1,8 +1,10 @@
 package part2abstractMath
 
+/**
+ * Semigroups are a concepts that encapsulates aggregation
+ * (used to COMBINE elements of the same type)
+ */
 object Semigroups {
-
-  // Semigroups COMBINE elements of the same type
 
   import cats.Semigroup
   import cats.instances.int._
@@ -26,9 +28,7 @@ object Semigroups {
   // for custom types
   case class Expense(id: Long, amount: Double)
 
-  implicit val expenseSemigroup = Semigroup.instance[Expense] { (a1, a2) =>
-    a1.copy(amount = a1.amount + a2.amount)
-  }
+  implicit val expenseSemigroup = Semigroup.instance[Expense] { (a1, a2) => a1.copy(amount = a1.amount + a2.amount) }
 
   // extension methods for Semigroup - |+|
 
@@ -39,7 +39,6 @@ object Semigroups {
   val anIntSum = 2 |+| 3
   val anStringSum = "I like" |+| " Cats"
   val anExpensesSum = Expense(1, 10) |+| Expense(2, 15)
-
 
   def main(args: Array[String]): Unit = {
     println(intCombination)

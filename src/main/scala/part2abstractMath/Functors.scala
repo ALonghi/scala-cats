@@ -1,12 +1,14 @@
 package part2abstractMath
 
-
 import scala.util.Try
 
-// Functors are higher-kinded type class that provides a map method
-// are important when we want to generalize transformations in the following use cases:
-// - specialized data structures for high-performance algorithms
-// - any "mappable" structures under the same high-level API
+/**
+ * Functors are higher-kinded type class (a way of abstracting over entities
+ * that take type constructors) that providing a map method
+ * are important when we want to generalize transformations in the following use cases:
+ * - specialized data structures for high-performance algorithms
+ * - any "mappable" structures under the same high-level API
+ */
 object Functors {
 
   // higher kinded type class
@@ -60,7 +62,7 @@ object Functors {
 
   implicit object TreeFunctor extends Functor[Tree] {
     override def map[A, B](fa: Tree[A])(f: A => B): Tree[B] = fa match {
-      case Leaf(value) => Leaf(f(value))
+      case Leaf(value)                => Leaf(f(value))
       case Branch(value, left, right) => Branch(f(value), map(left)(f), map(right)(f))
     }
   }
@@ -72,7 +74,7 @@ object Functors {
   val tree: Tree[Int] = Tree.branch(40, Tree.branch(5, Tree.leaf(10), Tree.leaf(20)), Tree.leaf(20))
   val incrementedTree = tree.map(_ + 1)
 
-  def do10xShorter[F[_] : Functor](container: F[Int]): F[Int] = // is equal as   def do10x[F[_]](container: F[Int])(implicit f: Functor) = ???
+  def do10xShorter[F[_]: Functor](container: F[Int]): F[Int] = // is equal as   def do10x[F[_]](container: F[Int])(implicit f: Functor) = ???
     container.map(_ * 10)
 
   // 14:44

@@ -1,7 +1,9 @@
 package part2abstractMath
 
-// Monoids are (a type class) that provides a natural extension of Semigroups
-// offering a "zero"/default value
+/**
+ * Monoids are (a type class) that provides a natural extension of Semigroups
+ * offering a "zero"/default value
+ */
 object Monoids {
 
   import cats.instances.int._
@@ -54,11 +56,9 @@ object Monoids {
   case class ShoppingCart(items: List[String], total: Double)
 
   implicit val shoppingCartsMonoids = Monoid.instance[ShoppingCart](ShoppingCart(List.empty, 0), (s1, s2) =>
-    ShoppingCart(items = s1.items ++ s2.items, total = s1.total + s2.total)
-  )
+    ShoppingCart(items = s1.items ++ s2.items, total = s1.total + s2.total))
 
   def checkout(shoppingCarts: List[ShoppingCart]): ShoppingCart = combineFold(shoppingCarts)
-
 
   def main(args: Array[String]): Unit = {
     println(sumLeft)

@@ -1,10 +1,11 @@
 package part2abstractMath
 
 import java.util.concurrent.Executors
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{ ExecutionContext, Future }
 
 /**
- * Monads are also Functor (extends Functor - as they provide the map method)
+ * Monads are also Functor (extends Functor )
+ * they are a mechanism for sequencing computations as they provide the .flatMap method and others
  * import cats.syntax.applicative._ -> provides the pure extension method
  * import cats.syntax.functor._ -> provides the map extension method
  * import cats.syntax.flatMap._ -> provides the flatMap extension method
@@ -109,7 +110,7 @@ object Monads {
   } yield one + two
 
   // implement a shorter version of getParis using for-comprehension
-  def getPairsWithFor[M[_] : Monad, A, B](ma: M[A], mb: M[B]): M[(A, B)] = {
+  def getPairsWithFor[M[_]: Monad, A, B](ma: M[A], mb: M[B]): M[(A, B)] = {
     for {
       a <- ma
       b <- mb

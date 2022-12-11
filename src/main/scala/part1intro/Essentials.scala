@@ -2,8 +2,8 @@ package part1intro
 
 import java.util.concurrent.Executors
 
-import scala.concurrent.{ExecutionContext, Future}
-import scala.util.{Failure, Success, Try}
+import scala.concurrent.{ ExecutionContext, Future }
+import scala.util.{ Failure, Success, Try }
 
 object Essentials {
 
@@ -59,10 +59,10 @@ object Essentials {
   } yield (n, c) // equivalent expression
 
   // options and try
-  val anOption: Option[Int] = Option(/* something that might be null */ 3) // Some(3)
+  val anOption: Option[Int] = Option( /* something that might be null */ 3) // Some(3)
   val doubledOption: Option[Int] = anOption.map(_ * 2)
 
-  val anAttempt = Try(/* something that might throw */ 42) // Success(42)
+  val anAttempt = Try( /* something that might throw */ 42) // Success(42)
   val aModifiedAttempt: Try[Int] = anAttempt.map(_ + 10)
 
   // pattern matching
@@ -75,7 +75,7 @@ object Essentials {
 
   val optionDescription: String = anOption match {
     case Some(value) => s"the option is not empty: $value"
-    case None => "the option is empty"
+    case None        => "the option is empty"
   }
 
   // Futures
@@ -87,7 +87,7 @@ object Essentials {
 
   // wait for completion (async)
   aFuture.onComplete {
-    case Success(value) => println(s"The async meaning of life is $value")
+    case Success(value)     => println(s"The async meaning of life is $value")
     case Failure(exception) => println(s"Meaning of value failed: $exception")
   }
 
@@ -96,8 +96,8 @@ object Essentials {
 
   // partial functions
   val aPartialFunction: PartialFunction[Int, Int] = {
-    case 1 => 43
-    case 8 => 56
+    case 1   => 43
+    case 8   => 56
     case 100 => 999
   }
 

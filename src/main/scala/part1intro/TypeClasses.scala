@@ -1,5 +1,12 @@
 package part1intro
 
+/**
+ * A type class is an abstract, parameterized type that lets you
+ * add new behavior to any data type without using sub-typing.
+ *
+ * A type class is a group of types that satisfy a contract typically defined by a trait.
+ */
+
 object TypeClasses {
 
   case class Person(name: String, age: Int)
