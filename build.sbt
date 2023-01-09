@@ -7,7 +7,7 @@ version := "0.1"
 
 scalaVersion := "2.13.10"
 
-val catsVersion = "2.7.0"
+val catsVersion = "2.9.0"
 
 Seq(
   ScalariformKeys.autoformat := true,
